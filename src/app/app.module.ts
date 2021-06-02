@@ -7,8 +7,7 @@ import { HomeComponent } from '@home/home.component';
 import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
-
-
+import {ConsignacionModule} from './feature/consignacion/consignacion.module'
 
 
 @NgModule({
@@ -20,7 +19,8 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
-    CoreModule
+    CoreModule,
+    ConsignacionModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],
