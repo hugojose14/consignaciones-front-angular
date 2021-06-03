@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Consignacion } from '@consignacion/shared/model/consignacion';
+import { ConsingacionService } from '@consignacion/shared/service/consingacion.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listar-consignacion',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarConsignacionComponent implements OnInit {
 
-  constructor() { }
+  consignacion: Consignacion = new Consignacion();
+  consignacionList: Consignacion[];
+  listaConsignacion: Observable<Consignacion[]>;
+  constructor(protected consignacionService:ConsingacionService) {
+   }
 
   ngOnInit(): void {
+    this.listaConsignacion = this.consignacionService.consultar();
+    this.listaConsignacion.subscribe(
+      response => {
+        this.consignacionList = response;
+        console.log("respuesta endpoints", response);
+      }
+    );
   }
 
 }

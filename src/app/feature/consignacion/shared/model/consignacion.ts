@@ -1,5 +1,5 @@
 export class Consignacion{
-    id:number;
+    id:string;
     nombre:string;
     apellido:string;
     direccion:string;
@@ -7,9 +7,9 @@ export class Consignacion{
     telefono:string
     cantidadConsignada:number;
 
-    constructor(id:number,nombre:string,apellido:string,
-        direccion:string,identificacion:string,telefono:string,
-        cantidadConsignada:number ){
+    constructor(id?:string, nombre?:string,apellido?:string,
+        direccion?:string,identificacion?:string,telefono?:string,
+        cantidadConsignada?:number ){
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -18,5 +18,7 @@ export class Consignacion{
         this.telefono = telefono;
         this.cantidadConsignada = cantidadConsignada;
     }
+
+    
 
 }

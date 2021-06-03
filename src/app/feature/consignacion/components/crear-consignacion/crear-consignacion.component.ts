@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {ConsingacionService} from '../../shared/service/consingacion.service'
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Consignacion } from '../../shared/model/consignacion';
+import { Observable,  throwError } from 'rxjs';
+import Swal from 'sweetalert2';
+import { catchError, finalize } from 'rxjs/operators';
+
 
 
 @Component({
@@ -11,18 +16,52 @@ import { FormGroup } from '@angular/forms';
 export class CrearConsignacionComponent implements OnInit {
 
   consignacionForm: FormGroup;
-  constructor(protected consignacionService:ConsingacionService) { }
+  consignacion: Consignacion = new Consignacion();
+  consignacionList: Consignacion[];
+  listaConsignacion: Observable<Consignacion[]>;
+
+  constructor(protected consignacionService:ConsingacionService) {
+   }
 
   ngOnInit(): void {
-    this.construirFormularioConsignacion();    
+    this.construirFormularioConsignacion();
   }
 
-  crear(){
-    this.consignacionService.guardar(this.consignacionForm.value);
+  save(){
+    this.consignacionService.guardar(this.consignacion).pipe(
+      catchError(e => {
+        Swal.fire({
+          icon:'error',
+          title:'Error al intentar guardar la consignación',
+          text: e.error.mensaje
+        })
+        return throwError(e);
+    }),finalize(() => {
+      Swal.fire({
+        icon:'info',
+        title:'Se guardó la consignación correctamente',
+        text: ''
+      })
+    }),
+
+    ).subscribe(data =>{
+      console.log(data);
+    });
+  }
+  
+  completeSave(){
+    this.consignacionForm.reset();
   }
 
   private construirFormularioConsignacion(){
-    
+    this.consignacionForm = new FormGroup({
+      nombre: new FormControl('',[Validators.required]),
+      apellido: new FormControl('',[Validators.required]),
+      direccion: new FormControl('',[Validators.required]),
+      telefono: new FormControl('',[Validators.required]),
+      cantidadConsignada: new FormControl('',[Validators.required]),
+      identificacion: new FormControl('',[Validators.required]),
+    })
   }
 
 }

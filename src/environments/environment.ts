@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  endpoint: '/prospectos-vida',
-  consignaciones:'/consignaciones'
+  endpoint: '/prospectos-vida'
 };
 
 /*

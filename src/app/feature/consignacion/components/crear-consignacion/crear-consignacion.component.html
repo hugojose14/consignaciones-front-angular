@@ -1,1 +1,47 @@
-<p>crear-consignacion works!</p>
+<form  [formGroup]="consignacionForm" (ngSubmit)= "completeSave()">
+  <div class ="contenedor">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput type="text" id = "nombreConsignacion" placeholder="Ingrese el nombre del usuario de la consignación"
+      formControlName="nombre" name = "nombreConsignacion"  [(ngModel)]="consignacion.nombre">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Apellido</mat-label>
+      <input matInput type="text" id = "apellidoConsignacion" placeholder="Ingrese el apellido del usuario de la consignación"
+      formControlName="apellido" name = "apellidoConsignacion" [(ngModel)]="consignacion.apellido">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Dirección</mat-label>
+      <input matInput type="text" id = "direccionConsignacion" placeholder="Ingrese la dirección del usuario de la consignación"
+      formControlName="direccion" name = "direccionConsignacion" [(ngModel)]="consignacion.direccion">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Identificación</mat-label>
+      <mat-select name="identificaciones" id="identificaciones" [(ngModel)]="consignacion.identificacion"  formControlName="identificacion">
+        <mat-option value="cc">Cédula de ciudadanía</mat-option>
+        <mat-option value="rc">Registro civil</mat-option>
+        <mat-option value="ti">Tarjeta de identidad</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Telefóno</mat-label>
+      <input matInput type="text" placeholder="Ingrese el teléfono del usuario de la consignación"
+      formControlName="telefono" id ="telefonoConsignacion" name = "telefonoConsignacion" [(ngModel)]="consignacion.telefono">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cantidad consignada</mat-label>
+      <input matInput type="number" placeholder="Ingrese la cantidd consignada del usuario de la consignación"
+      formControlName="cantidadConsignada" id ="cantidadConsignacion" name = "cantidadConsignacion" [(ngModel)]="consignacion.cantidadConsignada"> 
+    </mat-form-field>
+
+    <!---->
+    <button mat-raised-button color="primary" [disabled] = "!consignacionForm.valid" (click) = "save()"> Registrar Consignación</button>
+  </div>
+</form>
+

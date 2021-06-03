@@ -7,21 +7,28 @@ import { HomeComponent } from '@home/home.component';
 import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
-import {ConsignacionModule} from './feature/consignacion/consignacion.module'
+import {ConsignacionModule} from './feature/consignacion/consignacion.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
     CoreModule,
-    ConsignacionModule
+    ConsignacionModule,
+    BrowserAnimationsModule,
+
+   
+    
   ],
+  exports:[],
   providers: [CookieService],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
