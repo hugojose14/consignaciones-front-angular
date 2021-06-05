@@ -17,6 +17,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     MatTableModule,
     MatSelectModule,
     MatCardModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    MatIconModule,
+    
   ]
 })
 export class SharedModule { }

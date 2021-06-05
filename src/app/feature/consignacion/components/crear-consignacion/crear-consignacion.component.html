@@ -21,11 +21,8 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Identificación</mat-label>
-      <mat-select name="identificaciones" id="identificaciones" [(ngModel)]="consignacion.identificacion"  formControlName="identificacion">
-        <mat-option value="cc">Cédula de ciudadanía</mat-option>
-        <mat-option value="rc">Registro civil</mat-option>
-        <mat-option value="ti">Tarjeta de identidad</mat-option>
-      </mat-select>
+      <input matInput type="number" placeholder="Ingrese la identificación  del usuario de la consignación"
+      formControlName="identificacion" id ="identificacion" name = "identificacion" [(ngModel)]="consignacion.identificacion"> 
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -44,4 +41,3 @@
     <button mat-raised-button color="primary" [disabled] = "!consignacionForm.valid" (click) = "save()"> Registrar Consignación</button>
   </div>
 </form>
-

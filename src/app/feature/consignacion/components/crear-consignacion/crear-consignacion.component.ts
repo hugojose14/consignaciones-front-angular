@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {ConsingacionService} from '../../shared/service/consingacion.service'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Consignacion } from '../../shared/model/consignacion';
-import { Observable,  throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
-import { catchError, finalize } from 'rxjs/operators';
+//import Swal from 'sweetalert2';
+//import { catchError } from 'rxjs/operators';
 
 
 
@@ -29,24 +30,14 @@ export class CrearConsignacionComponent implements OnInit {
 
   save(){
     this.consignacionService.guardar(this.consignacion).pipe(
-      catchError(e => {
-        Swal.fire({
-          icon:'error',
-          title:'Error al intentar guardar la consignación',
-          text: e.error.mensaje
-        })
-        return throwError(e);
-    }),finalize(() => {
+    ).subscribe(()=>{
       Swal.fire({
         icon:'info',
-        title:'Se guardó la consignación correctamente',
-        text: ''
+        title:'Guardado correctamente',
+        text: 'Se guardó la consignación correctamente'
       })
-    }),
-
-    ).subscribe(data =>{
-      console.log(data);
-    });
+    }
+    );
   }
   
   completeSave(){

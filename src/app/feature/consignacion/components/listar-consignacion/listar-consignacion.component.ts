@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Consignacion } from '@consignacion/shared/model/consignacion';
-import { ConsingacionService } from '@consignacion/shared/service/consingacion.service';
+import { Consignacion } from '../../shared/model/consignacion';
+import { ConsingacionService } from '../../shared/service/consingacion.service';
 import { Observable } from 'rxjs';
+import { ComunicarComponentesService } from '@core/services/comunicar-componentes.service';
 
 @Component({
   selector: 'app-listar-consignacion',
@@ -10,13 +11,16 @@ import { Observable } from 'rxjs';
 })
 export class ListarConsignacionComponent implements OnInit {
 
+  mensaje:string
   consignacion: Consignacion = new Consignacion();
   consignacionList: Consignacion[];
   listaConsignacion: Observable<Consignacion[]>;
-  constructor(protected consignacionService:ConsingacionService) {
+  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'direccion','identificacion','telefono','cantidadConsignada', 'accion'];
+  constructor(protected consignacionService:ConsingacionService,public comunicacionService:ComunicarComponentesService<Consignacion>) {
    }
 
   ngOnInit(): void {
+
     this.listaConsignacion = this.consignacionService.consultar();
     this.listaConsignacion.subscribe(
       response => {
@@ -24,6 +28,11 @@ export class ListarConsignacionComponent implements OnInit {
         console.log("respuesta endpoints", response);
       }
     );
+  }
+
+  cambioText(consignacion:Consignacion){
+    this.comunicacionService.enviarMensaje( consignacion);
+    console.log("cambioText",consignacion);
   }
 
 }
