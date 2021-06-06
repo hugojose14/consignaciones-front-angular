@@ -19,10 +19,8 @@ export class ListarConsignacionComponent implements OnInit {
   constructor(protected consignacionService:ConsingacionService,public comunicacionService:ComunicarComponentesService<Consignacion>) {
    }
 
-  ngOnInit(): void {
-
-    this.listaConsignacion = this.consignacionService.consultar();
-    this.listaConsignacion.subscribe(
+  ngOnInit(){
+    this.consignacionService.consultar().subscribe(
       response => {
         this.consignacionList = response;
       }
@@ -31,7 +29,6 @@ export class ListarConsignacionComponent implements OnInit {
 
   cambioText(consignacion:Consignacion){
     this.comunicacionService.enviarMensaje( consignacion);
-    console.log("cambioText",consignacion);
   }
 
 }
