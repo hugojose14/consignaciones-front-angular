@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConsingacionService } from '@consignacion/shared/service/consingacion.service';
+import { ComunicarComponentesService } from '@core/services/comunicar-componentes.service';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
 import { CrearConsignacionComponent } from './crear-consignacion.component';
@@ -29,7 +30,7 @@ describe('Crear consignación component', () => {
         MatInputModule,
         MatSelectModule
       ],
-      providers:[ConsingacionService, HttpService]
+      providers:[ConsingacionService, HttpService,ComunicarComponentesService]
     })
     .compileComponents();
   });

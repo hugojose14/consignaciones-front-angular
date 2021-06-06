@@ -15,12 +15,12 @@ export class ConsingacionService {
     return this.http.doPost<Consignacion,number> ("http://localhost:8083/consignaciones/consignaciones",consignacion, this.http.optsName('crear consignaciones'));
   }
 
-  public consultar(){
+  public consultar():Observable<Consignacion[]>{
     return this.http.doGet<Consignacion[]>("http://localhost:8083/consignaciones/", this.http.optsName('consultar consignaciones'));
   }
 
-  public actualizar(id:number,consignacion:Consignacion){
-    return this.http.doPut<Consignacion,number>("http://localhost:8083/consignaciones/consignaciones/"+id , consignacion,this.http.optsName('actualizar consignaciones'));
+  public actualizar(id:number,consignacion:Consignacion):Observable<void>{
+    return this.http.doPut("http://localhost:8083/consignaciones/consignaciones/"+id , consignacion,this.http.optsName('actualizar consignaciones'));
   }
 
 

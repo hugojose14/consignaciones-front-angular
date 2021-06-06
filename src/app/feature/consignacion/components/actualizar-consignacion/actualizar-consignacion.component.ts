@@ -14,7 +14,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class ActualizarConsignacionComponent implements OnInit {
 
   consignacion:Consignacion = new Consignacion();
-  consignacionUpdate:Consignacion = new Consignacion();
   id:number;
   mensaje:string;
   consignacionForm: FormGroup;
@@ -28,11 +27,9 @@ export class ActualizarConsignacionComponent implements OnInit {
     this.route.paramMap.subscribe(params =>{
     this.id = parseInt(params.get('id'))});
     this.construirFormularioConsignacion();
-    console.log(this.consignacion);
   }
 
   actualizar(){
-    console.log("Entró al actualizar")
     this.consignacionService.actualizar(this.id,this.consignacion).subscribe(()=>{
       Swal.fire({
         icon:'info',
