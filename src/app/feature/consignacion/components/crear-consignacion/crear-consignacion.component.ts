@@ -31,7 +31,7 @@ export class CrearConsignacionComponent implements OnInit {
       Swal.fire({
         icon:'info',
         title:'Guardado correctamente',
-        text: `Se guardó la consignación correctamente con id: ${data}`
+        text: `Se guardó la consignación correctamente`
       })
       this.valorId = data;
     }
