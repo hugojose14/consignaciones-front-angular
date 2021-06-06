@@ -4,10 +4,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Consignacion } from '../../shared/model/consignacion';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
-//import Swal from 'sweetalert2';
-//import { catchError } from 'rxjs/operators';
-
-
 
 @Component({
   selector: 'app-crear-consignacion',
@@ -20,6 +16,7 @@ export class CrearConsignacionComponent implements OnInit {
   consignacion: Consignacion = new Consignacion();
   consignacionList: Consignacion[];
   listaConsignacion: Observable<Consignacion[]>;
+  valorId:number;
 
   constructor(protected consignacionService:ConsingacionService) {
    }
@@ -28,19 +25,21 @@ export class CrearConsignacionComponent implements OnInit {
     this.construirFormularioConsignacion();
   }
 
-  save(){
+  guardar():number{
     this.consignacionService.guardar(this.consignacion).pipe(
-    ).subscribe(()=>{
+    ).subscribe((data)=>{
       Swal.fire({
         icon:'info',
         title:'Guardado correctamente',
-        text: 'Se guardó la consignación correctamente'
+        text: `Se guardó la consignación correctamente con id: ${data}`
       })
+      this.valorId = data;
     }
     );
+    return this.valorId;
   }
   
-  completeSave(){
+  limpiarFormulario(){
     this.consignacionForm.reset();
   }
 

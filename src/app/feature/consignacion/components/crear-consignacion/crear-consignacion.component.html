@@ -1,4 +1,4 @@
-<form  [formGroup]="consignacionForm" (ngSubmit)= "completeSave()">
+<form  [formGroup]="consignacionForm" (ngSubmit)= "limpiarFormulario()">
   <div class ="contenedor">
 
     <mat-form-field appearance="fill">
@@ -38,6 +38,6 @@
     </mat-form-field>
 
     <!---->
-    <button mat-raised-button color="primary" [disabled] = "!consignacionForm.valid" (click) = "save()"> Registrar Consignación</button>
+    <button mat-raised-button color="primary" [disabled] = "!consignacionForm.valid" (click) = "guardar()"> Registrar Consignación</button>
   </div>
 </form>

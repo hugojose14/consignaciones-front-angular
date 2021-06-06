@@ -19,8 +19,7 @@ export class ConsingacionService {
     return this.http.doGet<Consignacion[]>("http://localhost:8083/consignaciones/", this.http.optsName('consultar consignaciones'));
   }
 
-  public actualizar(id,consignacion:Consignacion){
-    console.log("entró");
+  public actualizar(id:number,consignacion:Consignacion){
     return this.http.doPut<Consignacion,number>("http://localhost:8083/consignaciones/consignaciones/"+id , consignacion,this.http.optsName('actualizar consignaciones'));
   }
 

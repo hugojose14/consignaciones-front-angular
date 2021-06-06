@@ -25,7 +25,6 @@ export class ListarConsignacionComponent implements OnInit {
     this.listaConsignacion.subscribe(
       response => {
         this.consignacionList = response;
-        console.log("respuesta endpoints", response);
       }
     );
   }
