@@ -1,0 +1,17 @@
+.vertical-menu {
+	width: 200px;
+	a {
+		background-color: rgb(255, 255, 255);
+		color: black;
+		display: block;
+		padding: 12px;
+		text-decoration: none;
+		&:hover {
+			background-color: rgb(94, 177, 255);
+		}
+	}
+	a.active {
+		background-color: rgb(94, 177, 255);;
+		color: white;
+	}
+}
