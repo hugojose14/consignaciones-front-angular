@@ -1,43 +1,52 @@
 <div class="example-container">
   <div class="form-container">
+
+      <h2 class="mat-h2">Formulario para agregar consignación</h2>
       <form  [formGroup]="consignacionForm" (ngSubmit)= "limpiarFormulario()">
         <mat-form-field appearance="fill" class="form-field">
           <mat-label>Nombre</mat-label>
+          <mat-error *ngIf="consignacionForm.controls['nombre'].errors?.required">El nombre es requerido</mat-error>
           <input matInput type="text" id = "nombreConsignacion" placeholder="Ingrese el nombre del usuario de la consignación"
           formControlName="nombre" name = "nombreConsignacion"  [(ngModel)]="consignacion.nombre">
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="form-field">
           <mat-label>Apellido</mat-label>
+          <mat-error *ngIf="consignacionForm.controls['apellido'].errors?.required">El apellido es requerido</mat-error>
           <input matInput type="text" id = "apellidoConsignacion" placeholder="Ingrese el apellido del usuario de la consignación"
           formControlName="apellido" name = "apellidoConsignacion" [(ngModel)]="consignacion.apellido">
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="form-field">
           <mat-label>Dirección</mat-label>
+          <mat-error *ngIf="consignacionForm.controls['direccion'].errors?.required">La dirección es requerida</mat-error>
           <input matInput type="text" id = "direccionConsignacion" placeholder="Ingrese la dirección del usuario de la consignación"
           formControlName="direccion" name = "direccionConsignacion" [(ngModel)]="consignacion.direccion">
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="form-field">
           <mat-label>Identificación</mat-label>
+          <mat-error *ngIf="consignacionForm.controls['identificacion'].errors?.required">La identificación es requerida</mat-error>
           <input matInput type="number" placeholder="Ingrese la identificación  del usuario de la consignación"
           formControlName="identificacion" id ="identificacionConsignacion" name = "identificacionConsignacion" [(ngModel)]="consignacion.identificacion"> 
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="form-field">
           <mat-label>Telefóno</mat-label>
+          <mat-error *ngIf="consignacionForm.controls['identificacion'].errors?.required">La identificación es requerida</mat-error>
           <input matInput type="text" placeholder="Ingrese el teléfono del usuario de la consignación"
           formControlName="telefono" id ="telefonoConsignacion" name = "telefonoConsignacion" [(ngModel)]="consignacion.telefono">
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="form-field">
           <mat-label>Cantidad consignada</mat-label>
-          <input matInput type="number" placeholder="Ingrese la cantidd consignada del usuario de la consignación"
+          <mat-error *ngIf="consignacionForm.controls['cantidadConsignada'].errors?.required">La cantidad consignada es obligatoria</mat-error>
+          <mat-error *ngIf="consignacionForm.controls['cantidadConsignada'].errors?.min">La cantidad consignada debe ser mínimo 1000 COP</mat-error>
+          <mat-error *ngIf="consignacionForm.controls['cantidadConsignada'].errors?.max">La cantidad consignada debe ser máximo de  1000000 COP</mat-error>
+          <input matInput type="number" placeholder="Ingrese la cantidd consignada del usuario de la consignación" 
           formControlName="cantidadConsignada" id ="cantidadConsignacion" name = "cantidadConsignacion" [(ngModel)]="consignacion.cantidadConsignada"> 
         </mat-form-field>
 
-        <!---->
         <button mat-raised-button color="primary" id ="btn-guardar" name = "btn-guardar" [disabled] = "!consignacionForm.valid" (click) = "guardar()">Registrar Consignación</button>
       </form>
   </div>

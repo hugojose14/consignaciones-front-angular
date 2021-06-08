@@ -34,7 +34,7 @@ describe('ActualizarConsignacionComponent', () => {
       providers:[ConsingacionService, HttpService, ComunicarComponentesService]
     })
     .compileComponents();
-  });
+  }); 
 
   beforeEach(() => {
     consignacion = new Consignacion('1','Hugo','Pérez','Cartagena','129443','32393030',20000);

@@ -21,7 +21,7 @@ export class CrearConsignacionComponent implements OnInit {
   constructor(protected consignacionService:ConsingacionService) {
    }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.construirFormularioConsignacion();
   }
 
@@ -49,7 +49,7 @@ export class CrearConsignacionComponent implements OnInit {
       apellido: new FormControl('',[Validators.required]),
       direccion: new FormControl('',[Validators.required]),
       telefono: new FormControl('',[Validators.required]),
-      cantidadConsignada: new FormControl('',[Validators.required]),
+      cantidadConsignada: new FormControl('',[Validators.required,Validators.min(1000), Validators.max(1000000)]),
       identificacion: new FormControl('',[Validators.required]),
     })
   }
