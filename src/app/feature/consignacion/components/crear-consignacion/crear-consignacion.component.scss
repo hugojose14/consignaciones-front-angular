@@ -1,14 +1,13 @@
-.contenedor{
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    max-width: 400px;
-
-}
-
-.button {
-    padding: 3px 10px;
-    font-size: 12px;
-    border-radius: 3px;
-    border: 1px solid #e1e4e8;
+.example-container {
+    text-align: center;
   }
+  
+.form-container {
+    width: 30% ;
+    margin: 0 auto; 
+    margin-top: 5% ;
+  }
+  
+.form-field {
+    display: block
+}

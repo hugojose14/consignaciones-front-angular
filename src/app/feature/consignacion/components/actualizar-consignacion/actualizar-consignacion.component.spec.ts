@@ -56,7 +56,7 @@ describe('ActualizarConsignacionComponent', () => {
     expect(component.consignacionForm.valid).toBeTrue();
   })
 
-  it('debería actualizar actualizar',()=>{
+  it('debería actualizar consignación',()=>{
     comunicarService.body = consignacion;
     component.id = 1;
     spyOn(consignacionService,'actualizar').and.callThrough();

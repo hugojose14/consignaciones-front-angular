@@ -16,7 +16,7 @@ export class ConsingacionService {
   }
 
   public consultar():Observable<Consignacion[]>{
-    return this.http.doGet<Consignacion[]>("http://localhost:8083/consignaciones/", this.http.optsName('consultar consignaciones'));
+    return this.http.doGet<Consignacion[]>("http://localhost:8083/consignaciones/consignaciones", this.http.optsName('consultar consignaciones'));
   }
 
   public actualizar(id:number,consignacion:Consignacion):Observable<void>{
