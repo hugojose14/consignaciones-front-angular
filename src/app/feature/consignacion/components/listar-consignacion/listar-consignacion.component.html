@@ -1,6 +1,4 @@
-<p>listar-consignacion works!</p>
 <div >
-  <p>consignacionList</p>
   <table mat-table [dataSource]="consignacionList"  class="mat-elevation-z8">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -40,7 +38,7 @@
     <ng-container matColumnDef="accion">
       <th mat-header-cell *matHeaderCellDef> Acción </th>
       <td mat-cell *matCellDef="let element"> 
-        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click) ="cambioText(element)" [routerLink]="['/actualizar',element.id]" mat-menu-item>
+        <button id ="btn-actualizar-route" mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click) ="cambioText(element)" [routerLink]="['/actualizar',element.id]" mat-menu-item>
           <mat-icon class="mat-icon-rtl-mirror"> border_color</mat-icon>
         </button>
     </ng-container>

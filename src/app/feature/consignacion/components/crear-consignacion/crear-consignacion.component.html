@@ -22,7 +22,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Identificación</mat-label>
       <input matInput type="number" placeholder="Ingrese la identificación  del usuario de la consignación"
-      formControlName="identificacion" id ="identificacion" name = "identificacion" [(ngModel)]="consignacion.identificacion"> 
+      formControlName="identificacion" id ="identificacionConsignacion" name = "identificacionConsignacion" [(ngModel)]="consignacion.identificacion"> 
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -38,6 +38,6 @@
     </mat-form-field>
 
     <!---->
-    <button mat-raised-button color="primary" [disabled] = "!consignacionForm.valid" (click) = "guardar()"> Registrar Consignación</button>
+    <button mat-raised-button color="primary" id ="btn-guardar" name = "btn-guardar" [disabled] = "!consignacionForm.valid" (click) = "guardar()">Registrar Consignación</button>
   </div>
 </form>
