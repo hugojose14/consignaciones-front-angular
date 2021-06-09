@@ -9,6 +9,7 @@ import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import {ConsignacionModule} from './feature/consignacion/consignacion.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ProductoModule,
     CoreModule,
     ConsignacionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
     
   ],
   exports:[],
