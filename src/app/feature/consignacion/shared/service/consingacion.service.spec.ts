@@ -60,7 +60,7 @@ describe('ConsingacionService', () => {
     service.actualizar(1,consignacion).subscribe(()=>{});
     const req = httpMock.expectOne(`${apiEndpointConsignaciones}/1`);
     expect(req.request.method).toBe('PUT');
-    req.flush
+    req.flush(consignacion);
   })
 
 });
