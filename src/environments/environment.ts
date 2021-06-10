@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   endpoint: '/prospectos-vida',
-  urlConsignacion: "http://localhost:8083/consignaciones"
+  urlConsignacion: "/consignaciones"
 };
 
 /*

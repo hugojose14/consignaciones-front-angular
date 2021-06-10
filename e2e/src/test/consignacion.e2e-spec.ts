@@ -53,7 +53,7 @@ describe('workspace-project Consignacion',()=>{
         consignacion.clickBotonIrVistActualizar();
         consignacion.ingresarNombre(NOMBRE_CONSIGNACION);
         consignacion.botonFuncionalidadActualizarConsignacion();
-        expect(consignacion.botonActualizarActivo()).toBe(true);
+        expect(consignacion.botonActualizarActivo()).toBe(false);
         expect(consignacion.valorBotonActualizar()).toBe('Actualizar consignación');
     })
 
