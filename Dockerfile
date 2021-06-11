@@ -5,7 +5,8 @@ WORKDIR /app
 COPY ./ /app/
 #Corro e instalo npm install
 RUN npm install 
-RUN npm run build -- --prod --output-path=./src/main/resources/static
+#build app
+RUN npm run ng build -- --output-path=./src/main/resources/static --prod --verbose
 
 #Stage 1, trater la imagen de nginx
 FROM nginx 
