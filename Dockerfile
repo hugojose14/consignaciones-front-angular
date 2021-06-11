@@ -1,5 +1,5 @@
 #Stage 0, traer la imagen de node
-FROM node:latest as node
+FROM node
 WORKDIR /app 
 #copiar todos los archivos de mi aplicación
 COPY ./ /app/
