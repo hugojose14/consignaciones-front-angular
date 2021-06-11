@@ -3,12 +3,17 @@ FROM node
 
 #Creo el directorio de trabajo 
 WORKDIR /app 
-#copiar todos los archivos de mi aplicación
-COPY ./ /app
+
+COPY package*.json /app/
+
 #Corro e instalo npm install
-RUN npm install 
+RUN npm install
+
+#copiar todos los archivos de mi aplicación
+COPY ./ /app/
+ 
 #build app
-RUN npm run build -- --prod 
+RUN npm run build -- --prod --output.path= ./src/main/resources/static
 
 #Stage 1, trater la imagen de nginx
 FROM nginx 
