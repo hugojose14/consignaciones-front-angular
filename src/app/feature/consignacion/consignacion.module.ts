@@ -7,6 +7,7 @@ import { SharedModule } from '@shared/shared.module';
 import {ConsignacionComponent} from './components/consignacion/consignacion.component';
 import { ListarConsignacionComponent } from './components/listar-consignacion/listar-consignacion.component';
 import { ActualizarConsignacionComponent } from './components/actualizar-consignacion/actualizar-consignacion.component';
+import { ConsingacionService } from './shared/service/consingacion.service';
 
 
 
@@ -22,6 +23,6 @@ import { ActualizarConsignacionComponent } from './components/actualizar-consign
  
     
   ],
-  providers:[]
+  providers:[ConsingacionService]
 })
 export class ConsignacionModule { }

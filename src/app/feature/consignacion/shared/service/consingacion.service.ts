@@ -3,12 +3,8 @@ import {HttpService} from '@core/services/http.service';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Consignacion } from '../model/consignacion';
-//import { environment } from 'src/environments/environment';
 
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ConsingacionService {
   constructor(protected http: HttpService) { }
 
