@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
  
 #build app
-RUN npm run build -- --prod --output.path ./src/main/resources/static
+RUN npm run build --prod 
 
 #Stage 1, trater la imagen de nginx
 FROM nginx 
