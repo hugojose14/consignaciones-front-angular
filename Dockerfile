@@ -13,10 +13,10 @@ RUN npm install
 COPY . .
  
 #build app
-RUN npm run build --prod 
+RUN npm run build --prod --output-path ./src/main/resources/static 
 
 #Stage 1, trater la imagen de nginx
-FROM nginx 
+FROM nginx
 
 #Eliminar los archivos por defecto de nginx 
 RUN rm -rf /usr/share/nginx/html/*
