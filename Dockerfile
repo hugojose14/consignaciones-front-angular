@@ -4,16 +4,16 @@ FROM node
 #Creo el directorio de trabajo 
 WORKDIR /app 
 
-COPY package*.json /app/
+COPY package.json /.
 
 #Corro e instalo npm install
 RUN npm install
 
 #copiar todos los archivos de mi aplicación
-COPY ./ /app/
+COPY . .
  
 #build app
-RUN npm run build -- --prod --output.path= ./src/main/resources/static
+RUN npm run build -- --prod --output.path ./src/main/resources/static
 
 #Stage 1, trater la imagen de nginx
 FROM nginx 
