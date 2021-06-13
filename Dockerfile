@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
  
 #build app
-RUN npm run build --prod --output-path=./src/main/resources/static 
+RUN npm run build --prod  
 
 #Stage 1, trater la imagen de nginx
 FROM nginx
@@ -22,5 +22,8 @@ FROM nginx
 RUN rm -rf /usr/share/nginx/html/*
 
 #Copiar los archivos estáticos de prod al nginx 
-COPY --from=node /app/src/main/resources/static /usr/share/nginx/html
+COPY --from=node /app/dist/app-base /usr/share/nginx/html
 
+#Puerto
+EXPOSE 80
+CMD ["nginx","-g", "daemon off;"]
