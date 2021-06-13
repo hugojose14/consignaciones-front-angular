@@ -1,10 +1,11 @@
 #Stage 0, traer la imagen de node
-FROM node
+FROM node:14 as build
 
 #Creo el directorio de trabajo 
 WORKDIR /app 
 
-COPY package.json /.
+#Copio los archivos del package json y resto de archivos
+COPY package.json ./
 
 #Corro e instalo npm install
 RUN npm install
@@ -16,7 +17,7 @@ COPY . .
 RUN npm run build --prod  
 
 #Stage 1, trater la imagen de nginx
-FROM nginx
+FROM nginx as prod-stage
 
 #Eliminar los archivos por defecto de nginx 
 RUN rm -rf /usr/share/nginx/html/*
@@ -25,5 +26,5 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY --from=node /app/dist/app-base /usr/share/nginx/html
 
 #Puerto
-EXPOSE 80
-CMD ["nginx","-g", "daemon off;"]
+#EXPOSE 80
+#CMD ["nginx","-g", "daemon off;"]
