@@ -2,7 +2,7 @@
 FROM node:14 as build
 
 #Creo el directorio de trabajo 
-WORKDIR /app 
+WORKDIR /usr/app 
 
 #Copio los archivos del package json y resto de archivos
 COPY package.json ./
@@ -23,7 +23,7 @@ FROM nginx as prod-stage
 RUN rm -rf /usr/share/nginx/html/*
 
 #Copiar los archivos estáticos de prod al nginx 
-COPY --from=node /app/dist/app-base /usr/share/nginx/html
+COPY --from=node /usr/app/dist/app-base /usr/share/nginx/html
 
 #Puerto
 #EXPOSE 80
