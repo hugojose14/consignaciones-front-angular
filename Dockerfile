@@ -23,7 +23,7 @@ FROM nginx as prod-stage
 RUN rm -rf /usr/share/nginx/html/*
 
 #Copiar los archivos estáticos de prod al nginx 
-COPY --from=node /usr/app/dist/app-base /usr/share/nginx/html
+COPY --from=build /usr/app/dist/app-base /usr/share/nginx/html
 
 #Puerto
 #EXPOSE 80
