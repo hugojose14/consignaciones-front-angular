@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   endpoint: '/prospectos-vida',
-  urlConsignacion: "http://localhost:8083/consignaciones"
+  urlConsignacion: "/consignaciones"
 };

@@ -22,6 +22,9 @@ FROM nginx as prod-stage
 #Eliminar los archivos por defecto de nginx 
 RUN rm -rf /usr/share/nginx/html/*
 
+#Especificándole el puerto
+EXPOSE 4200
+
 #Copiar los archivos estáticos de prod al nginx 
 COPY --from=build /usr/app/dist/app-base /usr/share/nginx/html
 
